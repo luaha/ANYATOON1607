@@ -1,0 +1,297 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Header -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#FF6699"
+        android:padding="8dp"
+        android:gravity="center_vertical">
+
+        <ImageButton
+            android:id="@+id/buttontrove"
+            android:layout_width="39dp"
+            android:layout_height="39dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="centerInside"
+            android:src="@drawable/muitenhuongtrai" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Chapter....."
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Nội dung truyện -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/noidungtruyen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/content"
+                    android:layout_width="match_parent"
+                    android:layout_height="489dp"
+                    android:padding="16dp"
+                    android:text="Nội dung truyện dài ở đây..."
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <!-- Thanh nút like và theo dõi -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/custom_layoutbuttonlike_doctruyen"
+                android:gravity="center"
+                android:padding="8dp"
+                android:layout_margin="15dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:padding="8dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingBottom="8dp">
+
+                        <ImageView
+                            android:id="@+id/imagelike"
+                            android:layout_width="38dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/iconlike" />
+
+                        <TextView
+                            android:id="@+id/textViewlike"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Thích"
+                            android:textColor="@android:color/white"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingBottom="8dp">
+
+                        <ImageView
+                            android:id="@+id/imageViewluu"
+                            android:layout_width="38dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/icontheodoi" />
+
+                        <TextView
+                            android:id="@+id/textViewtheodoi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Theo dõi"
+                            android:textColor="@android:color/white"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Đường kẻ màu -->
+                <View
+                    android:id="@+id/viewdongke"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="#FA96BB" />
+
+                <!-- Phần bình luận -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:id="@+id/imagetaikhoan"
+                        android:layout_width="54dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/custom_imge"
+                        android:src="@drawable/anyatoon" />
+
+                    <TextView
+                        android:id="@+id/textViewbinhluan"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/custom_binhluan_doctruyen"
+                        android:hint="Viết bình luận"
+                        android:textColor="#EA3380"
+                        android:textSize="14sp"
+                        android:padding="8dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+    <!-- Layout bình luận ẩn -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/custom_nenlayout_trangchitvadoc"
+        android:visibility="gone">
+
+        <!-- Ảnh nền từ header -->
+        <ImageView
+            android:id="@+id/backgroundImage"
+            android:layout_width="match_parent"
+            android:layout_height="672dp"
+            android:layout_marginTop="40dp"
+            android:alpha="0.95"
+            android:scaleType="centerCrop"
+            android:src="@drawable/anhnencactrang" />
+
+        <LinearLayout
+            android:id="@+id/comment_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="30dp"
+            android:elevation="10dp"
+            android:orientation="vertical">
+
+            <!-- Header bình luận ẩn -->
+            <LinearLayout
+                android:id="@+id/header_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FF6699"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <ImageButton
+                    android:id="@+id/buttontrovedoctruyen"
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/muitenhuongtrai" />
+
+                <TextView
+                    android:id="@+id/textheader_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Chapter....."
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Đường kẻ màu -->
+            <View
+                android:id="@+id/viewdongke1"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="#FA96BB" />
+
+            <TextView
+                android:id="@+id/comment_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#EA3380"
+                android:padding="8dp"
+                android:text="Tất cả bình luận"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- Đường kẻ màu -->
+            <View
+                android:id="@+id/viewdongke2"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="#FA96BB" />
+
+            <ListView
+                android:id="@+id/commentListView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- Đường kẻ màu -->
+            <View
+                android:id="@+id/viewdongke3"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="#FA96BB" />
+
+            <LinearLayout
+                android:id="@+id/footer_comment"
+                android:layout_width="match_parent"
+                android:layout_height="62dp"
+                android:background="#EA3380"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/edit_text_comment"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/custom_binhluan_doctruyen"
+                    android:gravity="top|start"
+                    android:hint="Viết gì đó..."
+                    android:padding="8dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/send_icon"
+                    android:layout_width="39dp"
+                    android:layout_height="46dp"
+                    android:layout_marginRight="5dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Gửi"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/iconmaybaybinhl" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

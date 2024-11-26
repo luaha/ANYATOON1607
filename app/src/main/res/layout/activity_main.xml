@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- Ảnh nền -->
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/anhnenvaotruyen"
+        android:scaleType="centerCrop" />
+
+    <!-- ImageButton ở góc dưới bên phải -->
+    <ImageButton
+        android:id="@+id/buttondentrangtiep"
+        android:layout_width="47dp"
+        android:layout_height="49dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:background="@null"
+        android:scaleType="centerInside"
+        android:src="@drawable/muitenhuongphia" />
+</RelativeLayout>

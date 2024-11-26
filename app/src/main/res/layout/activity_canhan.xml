@@ -1,0 +1,423 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Ảnh nền -->
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/anhnencactrang"
+        android:scaleType="centerCrop"
+        android:alpha="0.5"/>
+
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="98dp"
+        android:layout_alignParentTop="true"
+        android:background="#EA3380"
+        android:padding="10dp">
+
+        <!-- ảnh_Tên tài khoản -->
+        <ImageView
+            android:id="@+id/imagecanhan"
+            android:layout_width="76dp"
+            android:layout_height="73dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="Profile Icon"
+            android:background="@drawable/custom_imge"
+            android:src="@drawable/anyatoon" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@id/imagecanhan"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/account_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tên tài khoản"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/account_diem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Điểm"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- coi là nút button có thể dùng image button -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/settings_iconthongbao"
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="Notification Icon"
+                android:src="@drawable/iconthongbao" />
+
+            <ImageView
+                android:id="@+id/settings_icon"
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+                android:contentDescription="Settings Icon"
+                android:src="@drawable/iconcaidat" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/textcanhan"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_below="@id/toolbar"
+        android:layout_above="@id/footer"
+        android:padding="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Phần Thông Tin Lịch sử, Theo dõi, Tải xuống -->
+            <LinearLayout
+                android:id="@+id/Tusach"
+                android:layout_width="match_parent"
+                android:layout_height="239dp"
+                android:background="@drawable/custom_button_kenh"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <!-- Text Tủ Sách -->
+                <TextView
+                    android:id="@+id/textthongtintusach"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/custom_button_canhan"
+                    android:padding="16dp"
+                    android:text="Tủ sách"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <!-- Nút Button -->
+                <LinearLayout
+                    android:id="@+id/cacnut"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <Button
+                        android:id="@+id/buttonToanbo"
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/custom_button_kenh"
+                        android:text="Lịch sử"
+                        android:textColor="#EA3380"
+                        android:textSize="11sp" />
+
+                    <Button
+                        android:id="@+id/buttonNucuong"
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/custom_button_kenh"
+                        android:text="Theo dõi"
+                        android:textColor="#EA3380"
+                        android:textSize="11sp" />
+
+                    <Button
+                        android:id="@+id/buttonKinhdi"
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/custom_button_kenh"
+                        android:text="Tải xuống"
+                        android:textColor="#EA3380"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <!-- RecyclerView -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="108dp"
+                    android:orientation="horizontal"
+                    android:padding="10dp" />
+            </LinearLayout>
+
+            <!-- Các nút khác -->
+            <LinearLayout
+                android:id="@+id/textcacnutkhac"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Tusach"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/custom_button_kenh"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:id="@+id/button_Search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="@drawable/custom_button_canhan"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:id="@+id/iconsearch"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:contentDescription="Button Icon"
+                        android:src="@drawable/nuttimkiem" />
+
+                    <TextView
+                        android:id="@+id/buttonTextSearch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Search Anya"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/button_binhluan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="@drawable/custom_button_canhan"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:id="@+id/iconbinhluan"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:contentDescription="Button Icon"
+                        android:src="@drawable/iconbinhluan__2_" />
+
+                    <TextView
+                        android:id="@+id/buttonTextbinhluan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Bình luận"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/button_gioithieu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="@drawable/custom_button_canhan"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:id="@+id/icongioithieu"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:contentDescription="Button Icon"
+                        android:src="@drawable/icongioithieu" />
+
+                    <TextView
+                        android:id="@+id/buttonTextgioithieu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Giới thiệu chúng tôi"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Xóa tài khoản và Đăng xuất -->
+            <LinearLayout
+                android:id="@+id/textDangxuat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textcacnutkhac"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/custom_button_kenh"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:id="@+id/button_xoataikhoan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="@drawable/custom_button_canhan"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:id="@+id/iconxoataikhoan"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:contentDescription="Button Icon"
+                        android:src="@drawable/iconxoataikhoan" />
+
+                    <TextView
+                        android:id="@+id/buttonTextxoataikhoan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Xóa tài khoản"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/button_dangxuat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="@drawable/custom_button_canhan"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:id="@+id/icondangxuat"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:contentDescription="Button Icon"
+                        android:src="@drawable/icondangxuat" />
+
+                    <TextView
+                        android:id="@+id/buttonTextdangxuat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Đăng xuất"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation Bar -->
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:background="#EA3380"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal|bottom"
+            android:orientation="vertical"
+            android:paddingBottom="8dp">
+
+            <ImageView
+                android:id="@+id/imageViewTruyentranh"
+                android:layout_width="36dp"
+                android:layout_height="30dp"
+                android:src="@drawable/truyentranh" />
+
+            <TextView
+                android:id="@+id/textViewHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Home"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal|bottom"
+            android:orientation="vertical"
+            android:paddingBottom="8dp">
+
+            <ImageView
+                android:id="@+id/imageViewKenh"
+                android:layout_width="37dp"
+                android:layout_height="30dp"
+                android:src="@drawable/truyen_tranh" />
+
+            <TextView
+                android:id="@+id/textViewKenh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Kênh"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal|bottom"
+            android:orientation="vertical"
+            android:paddingBottom="8dp">
+
+            <ImageView
+                android:id="@+id/imageViewCanhan"
+                android:layout_width="36dp"
+                android:layout_height="30dp"
+                android:src="@drawable/canhan" />
+
+            <TextView
+                android:id="@+id/textViewCanhan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Cá nhân"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
+
